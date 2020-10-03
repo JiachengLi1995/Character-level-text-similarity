@@ -11,7 +11,7 @@ from torch import autograd, optim, nn
 from torch.autograd import Variable
 from torch.nn import functional as F
 
-class FewShotREModel(nn.Module):
+class Model(nn.Module):
     def __init__(self, sentence_encoder):
         '''
         sentence_encoder: Sentence encoder
@@ -51,7 +51,7 @@ class FewShotREModel(nn.Module):
         # exit(0)
         return torch.mean((predicted == label).type(torch.FloatTensor))
 
-class FewShotREFramework:
+class Framework:
 
     def __init__(self, train_data_loader, val_data_loader, test_data_loader):
         '''
@@ -102,7 +102,7 @@ class FewShotREFramework:
               pytorch_optim=optim.SGD,
               grad_iter=1):
         '''
-        model: a FewShotREModel instance
+        model: a Model instance
         model_name: Name of the model
         B: Batch size
         N: Num of classes for each batch
@@ -201,7 +201,7 @@ class FewShotREFramework:
             eval_iter,
             ckpt=None): 
         '''
-        model: a FewShotREModel instance
+        model: a Model instance
         B: Batch size
         N: Num of classes for each batch
         K: Num of instances for each class in the support set

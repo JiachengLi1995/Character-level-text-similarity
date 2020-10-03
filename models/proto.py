@@ -1,15 +1,15 @@
 import sys
 sys.path.append('..')
-import fewshot_re_kit
+import network
 import torch
 from torch import autograd, optim, nn
 from torch.autograd import Variable
 from torch.nn import functional as F
 
-class Proto(fewshot_re_kit.framework.FewShotREModel):
+class Proto(network.framework.Model):
     
     def __init__(self, sentence_encoder, hidden_size=64):
-        fewshot_re_kit.framework.FewShotREModel.__init__(self, sentence_encoder)
+        network.framework.Model.__init__(self, sentence_encoder)
         self.hidden_size = hidden_size
         # self.fc = nn.Linear(hidden_size, hidden_size)
         self.drop = nn.Dropout()

@@ -1,7 +1,7 @@
-from fewshot_re_kit.data_loader import get_loader
-from fewshot_re_kit.framework import FewShotREFramework
-from fewshot_re_kit.sentence_encoder import SentenceEncoder
-from fewshot_re_kit.vocab import Vocab
+from network.data_loader import get_loader
+from network.framework import Framework
+from network.sentence_encoder import SentenceEncoder
+from network.vocab import Vocab
 from tqdm import tqdm
 import models
 from models.proto import Proto
