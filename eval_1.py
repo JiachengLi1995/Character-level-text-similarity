@@ -5,7 +5,6 @@ from network.vocab import Vocab
 from tqdm import tqdm
 import models
 from models.proto import Proto
-from models.siamese import Siamese
 import sys
 import torch
 from torch import optim, nn
@@ -105,14 +104,7 @@ def main():
         else:
             ground_truth[abbs[i]] = []
     
-    # indexed_abbs, mask_abb, indexed_target, mask_target = sentence_encoder.tokenize_test("room.leak-shutdown", 'system')
-    # input1 = torch.tensor(indexed_abbs).long().unsqueeze(0).cuda()
-    # mask1 = torch.tensor(mask_abb).long().unsqueeze(0).cuda()
-    # input2 = torch.tensor(indexed_target).long().unsqueeze(0).cuda()
-    # mask2 = torch.tensor(mask_target).long().unsqueeze(0).cuda()
-    # logits = model(input1, mask1, input2, mask2)
-    # print(logits)
-    # exit(0)
+    
     abbs_set = list(set(abbs))
     fulls_set = list(set(fulls))
     

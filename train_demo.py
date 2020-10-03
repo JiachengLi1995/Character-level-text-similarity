@@ -4,7 +4,6 @@ from network.sentence_encoder import SentenceEncoder
 from network.vocab import Vocab
 import models
 from models.proto import Proto
-from models.siamese import Siamese
 import sys
 import torch
 from torch import optim, nn
@@ -103,12 +102,11 @@ def main():
     if torch.cuda.is_available():
         model.cuda()
 
-  
-        framework.train(model, prefix, batch_size,
+        
+    framework.train(model, prefix, batch_size,
                 pytorch_optim=pytorch_optim, load_ckpt=opt.load_ckpt, save_ckpt=ckpt,
                 val_step=opt.val_step, train_iter=opt.train_iter, val_iter=opt.val_iter)
-    else:
-        ckpt = opt.load_ckpt
+
 
     acc = framework.eval(model, batch_size, opt.test_iter, ckpt=ckpt)
     print("RESULT: %.2f" % (acc * 100))

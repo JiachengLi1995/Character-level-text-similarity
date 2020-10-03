@@ -4,7 +4,6 @@ from network.sentence_encoder import SentenceEncoder
 from network.vocab import Vocab
 import models
 from models.proto import Proto
-from models.siamese import Siamese
 import sys
 import torch
 from torch import optim, nn
